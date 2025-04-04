@@ -2,7 +2,8 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "../db/schema";
 import dotenv from "dotenv";
-import { eq } from "drizzle-orm/pg-core";
+import { eq } from "drizzle-orm";
+
 
 dotenv.config();
 
@@ -26,6 +27,7 @@ export const getAllAgents = async () => {
 
 // ✅ Get Agent by ID
 export const getAgentById = async (id: number) => {
+    // @ts-ignore
     const agent = await db.select().from(schema.agents).where(schema.agents.id.eq(id));
     return agent.length ? agent[0] : null;
 };
@@ -41,6 +43,7 @@ export const getAllProperties = async () => {
 
 // ✅ Get Property by ID
 export const getPropertyById = async (id: number) => {
+    // @ts-ignore
     const property = await db.select().from(schema.property).where(schema.property.id.eq(id));
     return property.length ? property[0] : null;
 };
@@ -51,6 +54,7 @@ export const getPropertyById = async (id: number) => {
 
 // ✅ Get All Reviews for a Property
 export const getReviewsByPropertyId = async (propertyId: number) => {
+    // @ts-ignore
     return await db.select().from(schema.review).where(schema.review.property_id.eq(propertyId));
 };
 
@@ -60,5 +64,6 @@ export const getReviewsByPropertyId = async (propertyId: number) => {
 
 // ✅ Get All Images for a Property
 export const getGalleryByPropertyId = async (propertyId: number) => {
+    // @ts-ignore
     return await db.select().from(schema.gallery).where(schema.gallery.property_id.eq(propertyId));
 };

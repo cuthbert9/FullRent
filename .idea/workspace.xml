@@ -5,6 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc3d940f-e021-472b-a6af-e976c15ed2ab" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/.env" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/controllers/userController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/controllers/userController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/routes/userRoutes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/routes/userRoutes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/server.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HouseRent" beforeDir="false" afterPath="$PROJECT_DIR$/HouseRent" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HouseRent/.env" beforeDir="false" afterPath="$PROJECT_DIR$/HouseRent/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HouseRent/app/(root)/(tabs)/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HouseRent/app/(root)/(tabs)/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HouseRent/app/(root)/rentInfo/[id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/HouseRent/app/(root)/rentInfo/[id].tsx" afterDir="false" />
@@ -90,17 +96,12 @@
       <workItem from="1743313606635" duration="24957000" />
       <workItem from="1743652881026" duration="602000" />
       <workItem from="1743699947517" duration="7778000" />
-      <workItem from="1743743263565" duration="6876000" />
+      <workItem from="1743743263565" duration="11940000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/Backend/db.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

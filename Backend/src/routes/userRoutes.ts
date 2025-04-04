@@ -7,24 +7,25 @@ import {
     getReviewsByPropertyId,
     getGalleryByPropertyId,
 } from "../controllers/userController"; // Import controllers
-import {  Request, Response } from 'express';
+import {Router } from 'express';
+import {Request, Response} from "express";
 
-const router = express.Router();
+const userRouter = Router();
 
 
 
 // TEST ROUTE
-// router.get("/testDB", async (_req: Request, res: Response) => {
-//     try {
-//         // Return a simple success message
-//         const message = "API is working correctly!";
-//
-//         res.status(200).json({ message });
-//     } catch (error) {
-//         console.error("Error occurred in /test route:", error);
-//         res.status(500).json({ error: "Failed to fetch the test message" });
-//     }
-// });
+userRouter.get("/testDB", async (_req: Request, res: Response) => {
+    try {
+        // Return a simple success message
+        const message = "API is working correctly!";
+
+        res.status(200).json({ message });
+    } catch (error) {
+        console.error("Error occurred in /test route:", error);
+        res.status(500).json({ error: "Failed to fetch the test message" });
+    }
+});
 //Not Working
 
 /* ==========================
@@ -35,7 +36,7 @@ const router = express.Router();
 
    📌 AGENTS ROUTES
 ========================== */
-router.get("/agents", async (_req, res) => {
+userRouter.get("/agents", async (_req, res) => {
     try {
         const agents = await getAllAgents();
         res.json(agents);
@@ -45,7 +46,7 @@ router.get("/agents", async (_req, res) => {
     }
 });
 
-router.get("/agents/:id", async (req, res) => {
+userRouter.get("/agents/:id", async (req:any, res:any) => {
     try {
         const agent = await getAgentById(Number(req.params.id));
         if (!agent) return res.status(404).json({ error: "Agent not found" });
@@ -59,7 +60,7 @@ router.get("/agents/:id", async (req, res) => {
 /* ==========================
    📌 PROPERTIES ROUTES
 ========================== */
-router.get("/properties", async (_req, res) => {
+userRouter.get("/properties", async (_req, res) => {
     try {
         const properties = await getAllProperties();
         res.json(properties);
@@ -69,7 +70,7 @@ router.get("/properties", async (_req, res) => {
     }
 });
 
-router.get("/properties/:id", async (req, res) => {
+userRouter.get("/properties/:id", async (req:any, res:any) => {
     try {
         const property = await getPropertyById(Number(req.params.id));
         if (!property) return res.status(404).json({ error: "Property not found" });
@@ -83,7 +84,7 @@ router.get("/properties/:id", async (req, res) => {
 /* ==========================
    📌 REVIEWS ROUTES
 ========================== */
-router.get("/properties/:id/reviews", async (req, res) => {
+userRouter.get("/properties/:id/reviews", async (req, res) => {
     try {
         const reviews = await getReviewsByPropertyId(Number(req.params.id));
         res.json(reviews);
@@ -96,7 +97,7 @@ router.get("/properties/:id/reviews", async (req, res) => {
 /* ==========================
    📌 GALLERY ROUTES
 ========================== */
-router.get("/properties/:id/gallery", async (req, res) => {
+userRouter.get("/properties/:id/gallery", async (req, res) => {
     try {
         const images = await getGalleryByPropertyId(Number(req.params.id));
         res.json(images);
@@ -106,4 +107,4 @@ router.get("/properties/:id/gallery", async (req, res) => {
     }
 });
 
-export default router;
+export default userRouter;
