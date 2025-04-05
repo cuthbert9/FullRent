@@ -9,8 +9,15 @@ dotenv.config();
 
 // ✅ Initialize PostgreSQL connection
 const pool = new Pool({
-    connectionString: `${process.env.DATABASE_URL}`,
-    ssl: { rejectUnauthorized: false },
+    // connectionString: `${process.env.DATABASE_URL}`,
+    // ssl: { rejectUnauthorized: false },
+
+    host: "ep-super-thunder-a5rb04i2-pooler.us-east-2.aws.neon.tech",
+    port: 5432,
+    user: "HouseRent_owner",
+    password: "npg_H1SCF2galLpJ",
+    database: "HouseRent",
+    ssl: true,
 });
 
 // ✅ Initialize Drizzle ORM
@@ -44,7 +51,7 @@ export const getAllProperties = async () => {
 // ✅ Get Property by ID
 export const getPropertyById = async (id: number) => {
     // @ts-ignore
-    const property = await db.select().from(schema.property).where(schema.property.id.eq(id));
+    const property = await db.select().from(schema.property).where(eq(schema.property.id,id));
     return property.length ? property[0] : null;
 };
 

@@ -11,30 +11,37 @@ import * as schema from './db/schema'; // Import your schema
 dotenv.config();
 
 const app = express();
-const PORT = `${process.env.PORT}` || 3000;
+const PORT = process.env.PORT || 3000;
 const router=express.Router();
-app.use(userRouter);
+
+
+
 
 app.use(
     cors({
         origin: ['http://localhost:19006', 'http://localhost:8081'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-        allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        allowedHeaders: ['Content-Type', 'Authorization'],
     })
 );
 
+
 app.use(express.json()); // Middleware to parse JSON
-app.use( router);
+// app.use( router);
+app.use(userRouter);
+
+
 
 // Database connection setup
 const pool = new Pool({
-    connectionString: `${process.env.DATABASE_URL}`,
-    // host: "ep-super-thunder-a5rb04i2-pooler.us-east-2.aws.neon.tech",
-    // port: 5432,
-    // user: "HouseRent_owner",
-    // password: "npg_H1SCF2galLpJ",
-    // database: "HouseRent",
-    // ssl: true,
+    // connectionString: `${process.env.DATABASE_URL}`,
+
+    host: "ep-super-thunder-a5rb04i2-pooler.us-east-2.aws.neon.tech",
+    port: 5432,
+    user: "HouseRent_owner",
+    password: "npg_H1SCF2galLpJ",
+    database: "HouseRent",
+    ssl: true,
 });
 
 // Initialize Drizzle ORM
@@ -50,6 +57,36 @@ app.get('/test-db', async (_req, res) => {
         res.status(500).json({ error: 'Database connection failed' });
     }
 });
+
+
+
+
+
+
+//
+// app.get('/agents', async (_req, res) => {
+//     try {
+//         const agents = await db.select().from(schema.agents);
+//         res.json(agents);
+//     } catch (error) {
+//         console.error('Error fetching agents:', error);
+//         res.status(500).json({ error: 'Failed to fetch agents' });
+//     }
+// });
+//
+//
+// app.get('/properties', async (_req, res) => {
+//     try {
+//         const properties = await db.select().from(schema.property);
+//         res.json(properties);
+//     } catch (error) {
+//         console.error('Error fetching properties:', error);
+//         res.status(500).json({ error: 'Failed to fetch properties' });
+//     }
+// });
+
+
+
 
 
 
